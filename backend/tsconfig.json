@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "rootDir": "./src",
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "module": "nodenext",
+    "moduleResolution": "nodenext"
+  }
+}
