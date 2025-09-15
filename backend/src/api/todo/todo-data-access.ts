@@ -1,5 +1,5 @@
 import Database, { DynamicObject } from '../../data/database';
-import { TodoInsert } from './todo.model';
+import { Todo, TodoInsert } from './todo.model';
 
 const connectDb = () => {
   const db = new Database('./src/data/personal-organiser.db');
@@ -14,7 +14,18 @@ export const insertTodo = (todo: TodoInsert) => {
     RETURNING id;
     `;
   //db.get is used iso db.run in order to retrieve the result
-  const rowId = db.get(sql, todo) as Promise<DynamicObject>;
+  const row = db.get(sql, todo) as Promise<DynamicObject>;
   db.close();
-  return rowId;
+  return row;
+};
+
+export const deleteTodo = (id: number) => {
+  const db = connectDb();
+  const sql = `
+    DELETE FROM todo
+    WHERE id = ?;
+  `;
+  const row = db.run(sql, { id }) as Promise<Todo>;
+  db.close();
+  return row;
 };

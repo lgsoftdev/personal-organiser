@@ -10,4 +10,6 @@ todoRouter.get('/', (req: Request, res: Response) => {
 
 todoRouter.post('/', todoHandler.addTodo);
 
+todoRouter.delete('/:id', todoHandler.removeTodo);
+
 export default todoRouter;
