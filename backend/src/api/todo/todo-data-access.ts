@@ -1,4 +1,3 @@
-import { NextFunction } from 'express';
 import Database, { DynamicObject } from '../../data/database';
 import { Todo, TodoInsert } from './todo.model';
 
