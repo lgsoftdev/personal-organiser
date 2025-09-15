@@ -4,9 +4,9 @@ import * as todoHandler from './todo.handler';
 const todoRouter = Router();
 todoRouter.use(json());
 
-todoRouter.get('/', (req: Request, res: Response) => {
-  res.send('TODO');
-});
+todoRouter.get('/', todoHandler.getAllTodo);
+
+todoRouter.get('/:id', todoHandler.getTodoById);
 
 todoRouter.post('/', todoHandler.addTodo);
 
