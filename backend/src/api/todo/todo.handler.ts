@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import { ObjectWithId, TodoInsert } from './todo.model';
+import { TodoInsert } from './todo.model';
 import { deleteTodo, insertTodo } from './todo-data-access';
-import { DynamicObject } from '../../data/database';
 
 export const addTodo = async (
   req: Request<{}, {}, TodoInsert>,

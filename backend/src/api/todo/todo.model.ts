@@ -19,7 +19,3 @@ export type TodoInsert = Pick<
   Todo,
   'description' | 'prioritylevel' | 'datedue'
 >;
-
-export type ObjectWithId = {
-  id: string;
-};
