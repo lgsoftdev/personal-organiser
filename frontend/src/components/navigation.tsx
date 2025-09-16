@@ -1,13 +1,24 @@
-const Navigation = () => {
-  const NAV_LINKS = ['To Do', 'Link', 'Link'];
+import { Link } from '@mui/material';
+import { type SyntheticEvent } from 'react';
+import { NAV_LINKS } from '../constants';
+
+interface NavigationProps {
+  onClickLink: (e: SyntheticEvent) => void;
+}
+
+const Navigation = ({ onClickLink }: NavigationProps) => {
+  const linkValues = Object.values(NAV_LINKS);
+  const handleLinkClick = (event: SyntheticEvent) => {
+    onClickLink(event);
+  };
 
   return (
     <div className="sidenav">
-      {NAV_LINKS.map((link, index) => {
+      {linkValues.map((link, index) => {
         return (
-          <a key={index} href="#">
+          <Link key={index} href="#" onClick={handleLinkClick}>
             {link}
-          </a>
+          </Link>
         );
       })}
     </div>
