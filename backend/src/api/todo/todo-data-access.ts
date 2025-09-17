@@ -9,7 +9,18 @@ const connectDb = () => {
 export const getTodoTableRows = () => {
   const db = connectDb();
   const sql = `
-    SELECT * FROM todo;
+    SELECT id,
+      t.description, 
+      prioritylevel,
+      p.description as 'prioritydescription',
+      datedue,
+      isdone,
+      CASE
+        WHEN isdone = 'Y' THEN 'Yes'
+        ELSE 'No' 
+        END as 'status'
+      FROM todo t
+      JOIN priority p on t.prioritylevel = p.level;
   `;
   const rows = db.all(sql) as Promise<Todo[]>;
   db.close();
