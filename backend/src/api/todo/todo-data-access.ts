@@ -12,13 +12,8 @@ export const getTodoTableRows = () => {
     SELECT id,
       t.description, 
       prioritylevel,
-      p.description as 'prioritydescription',
       datedue,
-      isdone,
-      CASE
-        WHEN isdone = 'Y' THEN 'Yes'
-        ELSE 'No' 
-        END as 'status'
+      isdone
       FROM todo t
       JOIN priority p on t.prioritylevel = p.level;
   `;

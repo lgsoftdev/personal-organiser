@@ -6,6 +6,6 @@ export interface Todo {
   isdone: string;
 }
 
-export interface TodoItem extends Todo {
-  prioritydescription: string;
-}
+// export interface TodoItem extends Todo {
+//   prioritydescription: string;
+// }
